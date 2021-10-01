@@ -99,6 +99,8 @@ export const userInputComponent = Vue.extend({
         this.setFocusOnInput();
 
         vueEventDispatcher.$on(VueEventChannels.mainWindowHasBeenHidden, () => {
+            this.userConfirmationDialogVisible = false;
+
             const config: UserConfigOptions = this.config;
             if (!config.generalOptions.persistentUserInput) {
                 this.resetUserInput();
